@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Disease </title>
+    <meta charset="utf-8" />
+
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- Site Icons -->
+   <link rel="shortcut icon" href="images/fevicon.ico.png" type="image/x-icon" />
+   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css" />
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="{{url_for('static', filename = 'css/bootstrap.min.css')}}">
+   <!-- Site CSS -->
+   <link rel="stylesheet" href="{{url_for('static',filename = 'css/style.css')}}">
+   <!-- Colors CSS -->
+   <link rel="stylesheet" href="{{url_for('static', filename = 'css/colors.css')}}">
+   <!-- ALL VERSION CSS -->
+   <link rel="stylesheet" href="{{url_for('static', filename= 'css/versions.css')}}">
+   <!-- Responsive CSS -->
+   <link rel="stylesheet" href="{{url_for('static', filename = 'css/responsive.css')}}">
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="{{url_for('static', filename = 'css/custom.css')}}">
+<!--<link rel="stylesheet" href="css/predition.css"> -->
+   <!-- Modernizer for Portfolio -->
+   <script src="{{url_for('static', filename = 'css/modernizer.js')}}"></script>
+   <!-- [if lt IE 9] -->
+    <style>
+.collapsible {
+  background: url(service-bg.png);
+    background-repeat: no-repeat;
+    margin-left: 160px;
+    margin-top: 25px;
+  color: white;
+
+  cursor: pointer;
+  padding: 18px;
+  width: 70%;
+  border: none;
+box-shadow: 20%;
+  text-align: left;
+  outline: none;
+  font-size: 12px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.content {
+  padding: 20px 18px;
+  display: none;
+  overflow: hidden;
+  background-color:white;
+}
+.body{
+    background-color : #9cffd6;
+}
+</style>
+</head>
+<body class = "body" style = "color : black;">
+<!-- background="{{url_for('static', filename = 'service-bg.png')}}"-->
+<header>
+         <div class="header-top wow fadeIn" style="overflow-y: hidden;">
+            <div class="container">
+               <a class="navbar-brand" href="index.html"><img src="{{url_for('static', filename = 'logo.png')}}" alt="image" style="width : 60%;"></a>
+               <div class="right-header">
+                  <div class="header-info">
+                  </div>
+               </div>
+            </div>
+         </div>
+       </header>
+
+<div class="container" style="padding-top:100px; padding-left: 80px;">
+    <form method="post" style="color: aliceblue;">
+        <b><h1 style="text-align: center;">Disease : {{DiseaseName}}</h1></b><br>
+        <h2><p style="color : black;"><B>Disease Info :</B> {{l1}}</p></h2>
+        <br>
+       <h3>Precautions to take</h3>
+    {%for T in list_of_precautions%}
+        <p>{{T}}
+        {%endfor%}
+<br>
+        <br>
+
+       <h4>Do's</h4>
+    {%for L1 in DiseaseDoList%}
+        <p>{{L1}}</p>
+    {%endfor%}
+        <br>
+    <h4>Don'ts</h4>
+    {%for L2 in DiseaseDontList%}
+        <p>{{L2}}</p>
+    {%endfor%}
+        <br>
+        <h4>You should Visit a <u>{{SpecialistName}}</u></h4>
+
+        <h4>Suggested Lab Test are :</h4>
+    {%for L in Labtest%}
+        <p>{{L}}</p>
+    {%endfor%}
+        <br>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Life care</title>
+    <link rel="shortcut icon" href="{{url_for('static', filename = 'img/apple-touch-icon.png')}}">
+    <link href="{{url_for('static', filename = 'css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{url_for('static', filename = 'css/owl.carousel.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{url_for('static', filename = 'css/magnific-popup.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{url_for('static', filename = 'css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename = 'css/themify-icons.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename = 'css/nice-select.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename = 'css/flaticon.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename = 'css/gijgo.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename = 'css/animate.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename = 'css/slicknav.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename = 'css/style.css')}}" rel="stylesheet">
+    </head>
+    <body>
+    <header>
+    <div class="header-area ">
+    <div id="sticky-header" class="main-header-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-3 col-lg-2">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="{{url_for('static', filename = 'img/logo.png')}}" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-7">
+                    <div class="main-menu  d-none d-lg-block">
+                        <nav>
+                            <ul id="navigation">
+                                <li><a class="active" href="http://localhost:8080/Sympchecker/HomePage/index.html">Home</a></li> <!-- add our index.html link  -->
+                                <li><a href="#">Prediction</a></li><!-- add our user's input page where the user will provide symp link  -->
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="mobile_menu d-block d-lg-none"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </header>
+
+    <!-- offers_area_start -->
+    <div class="our_department_area">
+    <div class="container">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="section_title text-center mb-55">
+       <span class="icon-logo"><img src="{{url_for('static', filename = 'img/icon-logo.png')}}" alt="#"></span>
+                <h3>Life Care</h3>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-4 col-md-6 col-lg-4">
+            <div class="single_department">
+
+                <div class="department_content">
+                    <h3 style="text-align: center"><a href="#">{{DisplaySymptom1}}</a></h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-6 col-lg-4">
+            <div class="single_department">
+                <div class="department_thumb">
+
+                </div>
+            <div class="department_content">
+                    <h3 style="text-align: center"><a href="#">{{DisplaySymptom2}}</a></h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-6 col-lg-4">
+            <div class="single_department">
+                <div class="department_thumb">
+
+                </div>
+                 <div class="department_content">
+                    <h3 style="text-align: center"><a href="#">{{DisplaySymptom3}}</a></h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-6 col-lg-4" >
+            <div class="single_department">
+                <div class="department_thumb">
+
+                </div>
+                 <div class="department_content">
+                    <h3 style="text-align: center;"><a href="#">{{DisplaySymptom4}}</a></h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-6 col-lg-4" >
+            <div class="single_department">
+                <div class="department_thumb">
+
+                </div>
+                 <div class="department_content">
+                    <h3 style="text-align: center"><a href="#">{{DisplaySymptom5}}</a></h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    </div>
+    <div class="business_expert_area">
+    <div class="business_tabs_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <ul class="nav" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                    aria-selected="true"><b  style=" color: blue;">Decision Tree</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                    aria-selected="false"><b  style=" color: blue;">Random Forests</b></a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+                    aria-selected="false"><b style=" color: blue;">Naive Bayse</b></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <div class="container"  style="color: black;">
+    <div class="border_bottom">
+            <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                            <div class="row align-items-center">
+                                    <div class="col-xl-12 col-md-12" style="text-align: justify">
+                                        <div class="business_info">
+                                            <div class="icon">
+                                                <i class="flaticon-first-aid-kit"></i>
+                                            </div>
+                                            <h3>{{OutputDisease}}</h3>
+                                            <p style="font-weight: bold;">Disease Description : </p><p>{{OutDecisionTree_Description}}
+                                            </p><br>
+                                            <p style="font-weight: bold;">Precautions : </p>
+                                            {%for _ in OutDecisionTree_Precautions%}
+                                                <p>{{_}}</p>
+                                            {%endfor%}<br>
+                                            <p style="font-weight: bold;">Specialist : {{OutDecisionTree_Specialist}}</p><br>
+                                            <p style="font-weight: bold;">Do's</p>
+                                            {%for _1 in OutDecisionTree_DiseaseDoList%}
+                                                <p>{{_1}}</p>
+                                            {%endfor%}<br>
+                                            <p style="font-weight: bold;">Don'ts</p>
+                                            {%for _2 in OutDecisionTree_DiseaseDontList%}
+                                                <p>{{_2}}</p>
+                                            {%endfor%}<br>
+                                            <p style="font-weight: bold;">Suggested Lab Test(s) : </p>
+                                            {%for _3 in OutDecisionTree_LabTest%}
+                                                <p>{{_3}}</p>
+                                            {%endfor%}
+                                        </div>
+                                    </div>
+
+                                </div>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="row align-items-center">
+                               <div class="col-xl-12 col-md-12" style="text-align: justify">
+                                        <div class="business_info">
+                                            <div class="icon">
+                                                <i class="flaticon-first-aid-kit"></i>
+                                            </div>
+                                            <h3>{{RandomForestPredictor}}</h3><br>
+                                            <p style="font-weight: bold;">Disease Description : </p><p>{{OutRandomForest_Description}}</p><br>
+                                            <p style="font-weight: bold;">Precautions :</p>
+                                            {%for _4 in OutRandomForest_Precaution%}
+                                                <p>{{_4}}</p>
+                                            {%endfor%}<br>
+                                            <p style="font-weight: bold;">Specialist : {{OutRandomForest_Specialist}}</p><br>
+                                            <p style="font-weight: bold;">Do's</p>
+                                            {%for _5 in OutRandomForest_DiseaseDoList%}
+                                                <p>{{_5}}</p>
+                                            {%endfor%}<br>
+                                            <p style="font-weight: bold;">Don'ts</p>
+                                            {%for _6 in OutRandomForest_DiseaseDontList%}
+                                                <p>{{_6}}</p>
+                                            {%endfor%}<br>
+                                            <p style="font-weight: bold;">Suggested Lab Test(s) : </p>
+                                            {%for _7 in OutRandomForest_LabTest%}
+                                                <p>{{_7}}</p>
+                                            {%endfor%}
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                            <div class="row align-items-center">
+                                     <div class="col-xl-12 col-md-12" style="text-align: justify">
+                                        <div class="business_info">
+                                            <div class="icon">
+                                                <i class="flaticon-first-aid-kit"></i>
+                                            </div>
+                                            <h3>{{NaiveBayesPredictor}}</h3><br>
+                                            <p style="font-weight: bold;">Disease Description : </p><p>{{OutNaiveBayes_Description}}</p><br>
+                                            <p style="font-weight: bold;">Precautions : </p>
+                                            {%for _8 in OutNaiveBayes_Precaution%}
+                                                <p>{{_8}}</p>
+                                            {%endfor%} <br>
+                                            <p style="font-weight: bold;">Specialist : {{OutNaiveBayes_SpecialistName}}</p><br>
+                                            <p style="font-weight: bold;">Do's : </p>
+                                            {%for _9 in OutNaiveBayes_DiseaseDoList%}
+                                                <p>{{_9}}</p>
+                                            {%endfor%}<br>
+                                            <p style="font-weight: bold;">Don'ts</p>
+                                            {%for _10 in OutNaiveBayes_DiseaseDontList%}
+                                                <p>{{_10}}</p>
+                                            {%endfor%}<br><br>
+                                            <p style="font-weight: bold;">Suggested Lab Test(s) : </p>
+                                            {%for _11 in OutNaiveBayes_LabTest%}
+                                                <p>{{_11}}</p>
+                                            {%endfor%}
+                                        </div>
+                                    </div>
+
+                                </div>
+                    </div>
+                  </div>
+    </div>
+    </div>
+    </div>
+    <!-- business_expert_area_end  -->
+    <script src="{{url_for('static', filename = 'js/vendor/modernizr-3.5.0.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/vendor/jquery-1.12.4.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/popper.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/owl.carousel.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/isotope.pkgd.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/ajax-form.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/waypoints.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/jquery.counterup.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/imagesloaded.pkgd.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/scrollIt.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/jquery.scrollUp.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/wow.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/nice-select.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/jquery.slicknav.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/plugins.js')}}"></script>
+    <script src="{{url_for('static', filename = 'js/gijgo.min.js')}}"></script>
+
+    </body>
+
+    </html>

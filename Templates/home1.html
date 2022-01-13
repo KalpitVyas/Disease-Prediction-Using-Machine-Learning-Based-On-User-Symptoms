@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel = "stylesheet" type="text/css" href = "home1.css">
+    <meta charset="UTF-8">
+    <title>Temp</title>
+</head>
+<body>
+<h3>Please select a disease you're feeling like:</h3>
+<h4>Only one disease can be selected at a time:</h4>
+<form method="post">
+{%for every in Temp%}
+    <input type = "radio" value="{{every}}" name = DiseaseName id = {{every}}>
+    <label>{{every}}</label><br>
+    {%endfor%}
+<input type = "submit" value="Next">
+</form>
+</body>
+</html>
+
+
+
+
+<!--
+For Trial Basis this code was used. actual code is stored in FlaskDocumentaiton
+<form name = "home" method="post">
+    First: <input type="text" name = "first">
+    Second : <input type = 'text' name = 'second'>
+        <select name = "select">
+            {%for every in Temp%}
+            <option value="{{every}}">{{every}}</option>
+            {%endfor%}
+        </select>
+    {%for every in Temp%}
+    <input type = "checkbox" value="{{every}}" name = {{every}} id = {{every}}>
+    <label>{{every}}</label><br>
+    {%endfor%}
+     <input type="submit" value = "Submit" class = "button">
+     </form>--->

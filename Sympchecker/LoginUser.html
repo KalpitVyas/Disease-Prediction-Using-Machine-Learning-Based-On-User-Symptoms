@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Welcome!</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        
+		<link href="LoginUserCSS.css" rel = "stylesheet" type="text/css">
+	</head>
+<body>
+	<!--https://github.com/firebase/firebase-js-sdk/issues/998-->
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+	<script>
+	var firebaseConfig = {
+    apiKey: "AIzaSyAhTzPkUDYPkQCRxAhDAGR8BGIMuHMs9z4",
+    authDomain: "sympchecker-42e0e.firebaseapp.com",
+    databaseURL: "https://sympchecker-42e0e.firebaseio.com",
+    projectId: "sympchecker-42e0e",
+    storageBucket: "sympchecker-42e0e.appspot.com",
+    messagingSenderId: "182815287710",
+    appId: "1:182815287710:web:fcdcd7a744c223629b0e8f",
+    measurementId: "G-PNGPTWGDBK"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+	</script>
+    
+	<div class = "container">
+		<form>
+			<!-- Login for Email Id and Password Below-->
+		<div class="inner_container" >
+			<input type = "email" id = "email" placeholder="Enter Email Address" class="input" required><br><br>
+			<input type = "password" id = "password" placeholder="Enter Password" class = "input"
+				   required><br><br>
+			<button  type = "button" class = "btn btn-success" style = "width: 150px; background-color: darkgreen; text-decoration-color: black; font-weight: bold;", onclick="Login()">Login</button>
+	
+			<button type = "button"  class = "btn btn-primary" style = "width: 150px; margin-left: 14.5%; background-color: darkgreen; text-decoration-color: black; font-weight: bold;  border-style: hidden;" data-target="#CreateAccountModal" data-toggle = "modal">Create Account</button><br><br>
+			<buton type = "button" class = "btn btn-danger" style = "background-color: darkgreen; margin-left: 27%; text-decoration-color: black; border-style: hidden; font-weight: bold;"  data-toggle="modal" data-target="#exampleModalCenter">Forgot Password</buton>
+		</div>
+	</form>
+		<br>
+        <hr style="border-top : 1px dashed black">
+		<button onclick="GoogleAccount()" type ="button" class = "btn btn-secondary" 
+        style="width: 45%; font-weight:bold;  border-style: hidden; margin-left: 22%; border:solid 0px;" ><img src = "icons8-google-48.png">Login With Google</button>
+		
+	</div>
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Let us verify first....</h5>
+		  <h5>Looks Like you have fogotten your Password. No Worries, We will send you a Password Reset Mail to your EMAIL ADDRESS.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type = "email" placeholder="Enter Your Registered Email Address" id = "ResetEmail" style="width: 50%;"> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="ForgotPassword()">Send Confirmation</button>
+      </div>
+    </div>
+  </div>
+</div>
+	<!--Create Account Modal -->
+	<div class="modal fade" id="CreateAccountModal" tabindex="-1" role="dialog" aria-labelledby="CreateAccountModalTitle" aria-hidden="true">
+  <div class = "modal-dialog modal-lg" role = "document" style="width: 90%;">  
+			<div class = "modal-content">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          			<span aria-hidden="true">&times;</span>
+        		</button>
+				<div class = "modal-header">
+					<h3>Create Account</h3>  <!--Modal Header-->
+				</div>
+			<form action = "">
+				<div class = "modal-body">
+					<div class = "input-group md-3">
+						<label class = "input-group-text" id=basic-addon1 style="font-size: 15px;">Username</label>
+						<input type ="text" class ="form-control" id = "NewName" aria-label="UserName" aria-describedby="basic-addon1" style="margin-left: 30%; margin-top: -30px; width : 80%;" required><br>
+					</div>
+					<div class = "input-group md-3" style="margin-left: 32%; margin-top: -30px;">
+						<label class = "input-group-text" id=basic-addon2 style="font-size: 15px;">Age</label>
+						<input type ="text" class ="form-control" id = "NewAge" aria-label="Age" aria-describedby="basic-addon2" style="margin-left: 20%; margin-top: -30px;"><br>
+					</div>
+					<div class = "input-group md-3" style="margin-left: 58%; margin-top: -30px;">
+						<label class = "input-group-text" id=basic-addon3 style="font-size: 15px;">Phone Number</label>
+						<input type ="text" class ="form-control" id = "NewPhoneNumber" aria-label="PhoneNumber" aria-describedby="basic-addon3" style="margin-left: 40%; margin-top: -30px;"><br>
+					</div>
+					<div>
+						<span id = "NameError" style="margin-left: 10%;"></span>
+					<span id = "AgeError" style="margin-left: 22.5%;"></span>
+					<span id = "PhoneNumberError" style=" margin-left: 22%;"></span>
+					</div>
+					
+					<div class = "input-group md-3" style="margin-top: 35px;">
+						<label class = "input-group-text" id=basic-addon4 style="font-size: 15px;">Address</label><br>
+						<input type ="text" class ="form-control" id = "NewAddress" aria-label="Address" aria-describedby="basic-addon4" style="margin-left: 41%; margin-top: -30px; width: 293%;" rows="3"><br>
+					</div>
+					<div class = "input-group md-3" style="margin-top: -45px; margin-left: 58%;">
+						<label class = "input-group-text" id=basic-addon5 style="font-size: 15px;">Blood Group</label>
+						<div style = "margin-top: -27%;">
+							<select name="Blood" id="BloodGroup" style="margin-left: 133%;">
+								<option value="Select"  disabled>Select</option>
+								<option value="A+">A+</option>
+								<option value="B+">B+</option>
+								<option value="O+">O+</option>
+								<option value="AB+">AB+</option>
+								<option value="A+">A-</option>
+								<option value="B+">B-</option>
+								<option value="O+">O-</option>
+								<option value="AB+">AB-</option>
+							  </select>
+						</div>
+					
+				</div><br>
+					<div>
+						<span id = "AddressError" style = "margin-left : 20%;"></span>
+					</div>
+					<br>
+		
+				<div class = "input-group md-3"> <!--City-->
+					<label class = "input-group-text" id=basic-addon6 style="font-size: 15px;">City</label>	
+					<br>
+					<input type = "text" class = "form-control" id = "NewCity" aria-label = "City" aria-describedby="bacic-addon6" style = "width : 100%; margin-left: 41%; margin-top: -30px;;">
+				</div>
+				<div class = "input-group md-3" style = "margin-left: 25%; margin-top: -2.5%;">
+					<label class = "input-group-text" id=basic-addon7 style="font-size: 15px;">State</label>
+					<br>
+					<input type = "text" class = "form-control" id = "NewState" aria-label = "State" aria-describedby="bacic-addon7" style = "width : 100%; margin-left: 30%; margin-top: -30px; position: static;">
+				</div>
+				<div class = "input-group md-3" style = "margin-left: 48%; margin-top: -2.5%;">
+					<label  class = "input-group-text" id=basic-addon8 style="font-size: 15px;">Pin Code</label>	
+				</div>
+				<div style = "margin-top: -2.5%;">
+					<input type = "text" class = "form-control" id = "NewPinCode" aria-label = "PinCode" aria-describedby="bacic-addon8" style = "width : 15%; margin-left: 55%;">
+				</div>
+				<div class = "input-group md-3" style = "margin-left: 73%; margin-top: -2.5%;">
+					<label  class = "input-group-text" id=basic-addon9 style="font-size: 15px;">Gender</label>	
+				</div><br>
+				<div style = "margin-top: -3.8%; margin-left: 80%;" id = basic-addon9>
+					<input type="radio" name="Male" value="Male" id = "GetGender"><span>Male</span>
+                    <input type="radio" name="Female" value="Female" id = "GetGender"><span>Female</span>
+				</div>
+					<div style="margin-top: 9px;">
+						<span id = "CityError" style="margin-left: 9%;"></span>
+					<span id = "StateError" style="margin-left: 10%;"></span>
+					<span id = "PinCodeError" style="margin-left: 11%;"></span>
+					</div>
+					<br><br>
+				<div class  = "input-group md-3">
+					<label  class = "input-group-text" id=basic-addon9 style="font-size: 15px;">Email ID</label>
+					<br>
+					<input type = "text" class = "form-control" id = "NewEmailID" aria-label = "EmailID" aria-describedby="bassic-addon9" style = "margin-left: 41%; margin-top: -18%; width: 150%;">
+				</div><br><br>
+				<div class  = "input-group md-3" style = "margin-left: 33%; margin-top: -66px;">
+					<label class = "input-group-text" id=basic-addon9 style="font-size: 15px;">Password</label>
+					<br>
+					<input type = "password" class = "form-control" id = "NewPassword" aria-label = "Password" aria-describedby="bassic-addon10" style = "margin-left: 48%; margin-top: -18%; width: 100%;">
+				</div>
+						<div class  = "input-group md-3" style = "margin-left: 65%; margin-top: -30px;">
+					<label class = "input-group-text" id=basic-addon9 style="font-size: 15px;">Confirm Password</label>
+					<br>
+					<input type = "password" class = "form-control" id = "ConfirmNewPassword" aria-label = "ConfirmPassword" aria-describedby="bassic-addon10" style = "margin-left: 77%; margin-top: -15%; width: 100%;">
+				</div><br><br>
+					<p id = "PasswordError"></p>
+			</div>
+				</form>
+				<div class = "modal-footer">
+					<button type = "submit" class = "btn btn-success" onclick="SignUp()">Create Account</button>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- All Javascript Code is in LoginUser.js-->
+<script src = "LoginUserUpdatedRecent11.js"></script>
+</body>
+</html>

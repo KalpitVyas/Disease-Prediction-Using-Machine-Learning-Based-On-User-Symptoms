@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!-- Basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- Mobile Metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+   <!-- Site Metas -->
+   <title>Life Care</title>
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- Site Icons -->
+   <link rel="shortcut icon" href="images/fevicon.ico.png" type="image/x-icon" />
+   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="css/bootstrap.min.css">
+   <!-- Site CSS -->
+   <link rel="stylesheet" href="style.css">
+   <!-- Colors CSS -->
+   <link rel="stylesheet" href="css/colors.css">
+   <!-- ALL VERSION CSS -->
+   <link rel="stylesheet" href="css/versions.css">
+   <!-- Responsive CSS -->
+   <link rel="stylesheet" href="css/responsive.css">
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="css/custom1.css">
+   <!-- Modernizer for Portfolio -->
+   <script src="js/modernizer.js"></script>
+   <!-- [if lt IE 9] -->
+</head>
+	<!--https://github.com/firebase/firebase-js-sdk/issues/998-->
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
+	<script>
+	var firebaseConfig = {
+    apiKey: "AIzaSyAhTzPkUDYPkQCRxAhDAGR8BGIMuHMs9z4",
+    authDomain: "sympchecker-42e0e.firebaseapp.com",
+    databaseURL: "https://sympchecker-42e0e.firebaseio.com",
+    projectId: "sympchecker-42e0e",
+    storageBucket: "sympchecker-42e0e.appspot.com",
+    messagingSenderId: "182815287710",
+    appId: "1:182815287710:web:fcdcd7a744c223629b0e8f",
+    measurementId: "G-PNGPTWGDBK"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+	</script>
+   <body class="clinic_version" style="overflow-x: hidden">
+       <!-- this help us to load the page -->
+      <!-- LOADER -->
+      <div id="preloader">
+         <img class="preloader" src="images/loaders/heart-loading2.gif" alt="">
+      </div>
+      <!-- END LOADER -->
+       <!-- header // custom.css -->
+      <header>
+         <div class="header-top wow fadeIn" style="overflow-y: hidden;">
+            <div class="container">
+               <a class="navbar-brand"><img src="images/logo.png" alt="image"></a>
+               <div class="right-header">
+                  <div class="header-info">
+                     <div class="info-inner">
+                        <span class="icontop"><i class="fa fa-envelope"></i></span>
+						 <span class="iconcont"><label id = "DisplayMail"></label></span>	
+                     </div>
+                     <div class="info-inner">
+                        <span class="icontop"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+						 <span class="iconcont"><a data-scroll href="#">Daily: 24/7</a></span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="header-bottom wow fadeIn">
+            <div class="container">
+               <nav class="main-menu">
+                  <div class="navbar-header">
+                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i class="fa fa-bars" aria-hidden="true"></i></button>
+                  </div>
+				  
+                  <div id="navbar" class="navbar-collapse collapse">
+                     <ul class="nav navbar-nav">
+                        <li><a class="active" href="index.html">Home</a></li>
+                        <li><a data-scroll href="#about">Disease Prediction</a></li>
+                        <li><a data-scroll href="#service">Book Appointment</a></li><!-- move to middle -->
+                       
+                        <li><a data-scroll href="#" onclick = "OpenProfile()">Profile</a></li>
+						<script>
+							function OpenProfile(){
+								const URL = "http://localhost:8080/Sympchecker/HomePage/profile.html";
+								console.log("Redirecting User to : " + URL);
+								const win = window.open(URL, "_blank");
+					window.close("http://localhost:8080/Sympchecker/HomePage/index.html");
+							}
+						 </script>
+                        
+ 						<!-- added sign out we have to add logout logic -->
+						 <li><a href= "#" onclick = "openDiseaseDescription()">Disease Description</a></li>
+						 <script>
+							 function openDiseaseDescription(){
+							 	const openURL = "http://127.0.0.1:5001/Search";
+								 window.open(openURL);
+							 }
+						 </script>
+                         <li><a data-scroll href="#getintouch">Contact Us</a></li>
+						 <li><a href= "#" onclick="SignOut()">Sign Out</a></li>
+                     </ul>
+                  </div>
+               </nav>
+            </div>
+         </div>
+      </header>
+      <div id="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4" style="background-image:url('images/slider-bg.png');">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12 col-sm-12">
+                  <div class="text-contant">
+                     <h2>
+                        <span class="center"><span class="icon"><img src="images/icon-logo.png" alt="#" /></span></span>
+                        <a class="typewrite" data-period="2000" data-type='[ "Welcome to healthy Life", "We Care Your Health", "We are Expert!" ]'>
+                        <span class="wrap"></span>
+                        </a>
+                     </h2>
+                  </div>
+               </div>
+            </div>
+            <!-- end row -->
+         </div>
+         <!-- end container -->
+      </div>
+      <!-- end section -->
+       
+       
+<!--  start the 3 tabs  -->     
+      <div id="time-table" class="time-table-section">
+         <div class="container">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+               <div class="row">
+                  <div class="service-time one" style="background:#4dbf52;">
+                     <span class="info-icon"><i class="fa fa-ambulance" aria-hidden="true"></i></span>
+                     <h3>Ambulance Number</h3>
+					  <ul>
+                     <li>contant : 8822288222</li>
+                    <li>contant : 8975303030</li>
+					  </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+               <div class="row">
+                  <div class="service-time middle" style="background:#316e34;">
+                     <span class="info-icon"><i class="fa fa-clock-o" aria-hidden="true"></i></span> 
+                     <h3>Working Hours of Doctors</h3>
+                     <div class="time-table-section">
+                        <ul>
+                           <li><span class="left">Monday - Friday</span><span class="right">8.00 – 18.00</span></li>
+                           <li><span class="left">Saturday</span><span class="right">8.00 – 16.00</span></li>
+                           <li><span class="left">Sunday</span><span class="right">8.00 – 13.00</span></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+               <div class="row">
+                  <div class="service-time three" style="background:#4dbf52;">
+                     <span class="info-icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></span>
+					  <h3>Hospital Names</h3>
+					  <ul>
+						  <li>Kamla Nehru Hospital,Pune</li>
+                           <li>Dr.Naidu Contagious disease Hospital,Pune</li>
+					  </ul>
+				  </div>
+               </div>
+            </div>
+         </div>
+    </div> 
+ <!--  end the 3 tabs  -->
+       
+      <div id="about" class="section wow fadeIn">
+         <div class="container">
+            <div class="heading">
+               <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
+               <h2>Disease Prediction</h2>
+            </div>
+    <!-- end title -->
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="message-box">
+                     <h4>What We Do</h4>
+                     <h2>Disease prediction</h2>
+    <!-- here have some text to aadd -->
+                     <p class="lead"> The healthcare domain is one of the prominent research fields. There are a lot of procedures for the treatment of multiple diseases across the world. We are using Machine Learning an emerging approach that helps in prediction, diagnosis of a disease. This webapp depicts the prediction of disease based on symptoms provided by the user using machine learning algorithms like Naive Bayes, Decision Tree and Random Forest to predict the disease.</p>
+              
+    <!-- start checkup button -->       
+                      <a href="http://127.0.0.1:5000/" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1" >start checkup</a>
+                  </div>
+                  <!-- end messagebox -->
+               </div>
+        <!-- end col -->
+               <div class="col-md-6">
+                  <div class="post-media wow fadeIn">
+                     <img src="disease_detection.jpg" alt="" class="img-responsive">
+                  </div>
+         <!-- end media -->
+               </div>
+     <!-- end col -->
+            </div>
+            <!-- end row -->
+            </div>
+            <!-- end row -->
+         </div>
+         <!-- end container -->
+    <!-- Book Appointment -->   
+      <div id="service" class="services wow fadeIn" style="padding-left:34.5%;">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                  <div class="appointment-form" style="padding: 5px;">
+                     <h3><span>+</span> Book Appointment</h3>
+                     <div class="form" style="padding: 15px;">
+                        <form>
+                           <fieldset>
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                 <div class="row">
+                                    <div class="form-group">
+                                       <input type="text" id="name" placeholder="Your Name">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                 <div class="row">
+                                    <div class="form-group">
+                                       <input type="text" placeholder="Email Address" id="email">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 select-section">
+                                 <div class="row">
+                                    <div class="form-group">
+                                       <select class="form-control" id = "date">
+                                          <option>Day</option>
+                                          <option>Sunday</option>
+                                          <option>Monday</option>
+                                           <option>Tuesday</option>
+                                           <option>Wednesday</option>
+                                           <option>Thursday</option>
+                                           <option>Friday</option>
+                                           <option>Saturday</option> 
+                                       </select>
+                                    </div>
+                                    <div class="form-group">
+                                       <select class="form-control" id = "time">
+                                          <option>Time</option>
+                                          <option>8:00-9:00 AM</option>
+                                          <option>9:00-10:00 AM</option>
+										   <option>10:00-11:00 AM</option>
+										   <option>11:00-12:00 AM</option>
+										   <option>5:00-6:00 PM</option>
+										   <option>6:00-7:00 PM</option>
+										   <option>7:00-8:00 PM</option>
+										   <option>8:00-9:00 PM</option>
+                                       </select>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                 <div class="row">
+                                    <div class="form-group">
+                                       <select class="form-control" id = "Doc_Name">
+										   <option>Select Doctor</option>
+                                          <option value="kalpit_doc1@gmail.com">Kalpit Vyas</option>
+                                          <option value= "ananya_doc2@gmail.com">Ananya Ubarhande</option>
+										   <option value= "sahil_doc3@gmail.com">Sahil Sapar</option>
+										   <option value= "rutuja_doc4@gmail.com">Rutuja Jadhav</option>
+                                       </select>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                              </div>
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                 <div class="row">
+                                    <div>
+                                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <br>
+                                       <div class="center">
+                                           <input type = "button" onclick="Appointment()" value="Book Appointment"       style="padding: 15px 30px;
+                                            background: linear-gradient(to right, #64ed58 5%, #47ad62 100%);
+                                            color: #fff; 
+                                            font-weight: bold;
+                                            border-radius: 50px;border:none;
+                                            margin-top: 10px;
+                                            transition:ease all 1s;">
+                                      </div>
+										 
+                                    </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </fieldset>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+	   <script>
+		var db = firebase.firestore();
+		function Appointment(){
+			var patientName = document.getElementById("name").value;
+			var patientEmail = document.getElementById("email").value;
+			var date = document.getElementById("date").value;
+			var time = document.getElementById("time").value;
+			var doc_name = document.getElementById("Doc_Name").value;
+			console.log(doc_name)
+			db.collection(doc_name).doc(patientEmail).set({
+			UserName: patientName,
+			UserEmail: patientEmail,
+			Date : date,
+			Time : time
+			})
+			.then(function() {
+			alert("Appointment Booked!")
+			console.log("Document successfully written!");
+			})
+		}
+	   </script>
+      <!-- end section -->
+	         
+       <!--  footer section -->
+      <div id="getintouch" class="section wb wow fadeIn" style="padding-bottom:0;">
+         <div class="container">
+            <div class="heading">
+               <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
+               <h2>Get in Touch</h2>
+            </div>
+         </div>
+        
+       </div>
+      
+      <footer id="footer" class="footer-area wow fadeIn">
+         
+            <div class="row">
+               <div class="col-md-4">
+                  <div class="logo padding">
+                     <a href=""><img src="images/logo.png" alt=""></a>
+                     <p>The place that you can trust.</p>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="footer-info padding">
+                     <h3>CONTACT US</h3>
+                     <p><i class="fa fa-map-marker" aria-hidden="true"></i>Life Care, Pune, Maharashtra, India.</p>
+                     <p><i class="fa fa-paper-plane" aria-hidden="true"></i> LifeCare_support@gmail.com</p>
+                     <p><i class="fa fa-phone" aria-hidden="true"></i> (+1) 123 456</p>
+                  </div>
+               </div>
+                
+               <div class="col-md-4">
+                  <div class="subcriber-info">
+                     <h3>CONNECT WITH US</h3> 
+                      <div class="contact-section">
+               <form id="ajax-contact">
+                     <div class="col-md-6">
+                        <div class="form-group in_name">
+                           <input type="text" class="form-control" placeholder="Name" required="required" id = "ContactUsName">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group in_email">
+                           <input type="email" class="form-control" placeholder="E-mail" required="required" id = "ContactUsEmail">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group in_email">
+                           <input type="tel" class="form-control" placeholder="Phone" required="required" id = "ContactUsPhone">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group in_email">
+                           <input type="text" class="form-control" placeholder="Subject" required="required" id = "ContactUsSubject">
+                        </div>
+                     </div>
+                     <div class="col-md-12">
+                        <div class="form-group in_message"> 
+                           <textarea class="form-control" rows="5" placeholder="Message" required="required" id = "ContactUsMessage"></textarea>
+                        </div>
+                        <div class="actions">
+                           <input type="button" value="Send Message" name="submit" id="submitButton" class="btn small" title="Submit Your Message!" onclick="Support()">
+							<script>
+								function Support(){
+									console.log("Feedback submitted");
+									var db = firebase.firestore();
+									var AddName = document.getElementById("ContactUsName").value;
+									var AddEmail = document.getElementById("ContactUsEmail").value;
+									var AddPhone = document.getElementById("ContactUsPhone").value;
+									var AddSubject = document.getElementById("ContactUsSubject").value;
+									var AddMessage = document.getElementById("ContactUsMessage").value;
+									db.collection("LifeCare_support@gmail.com").doc(AddEmail).set({
+										Name : AddName,
+										Phone : AddPhone,
+										Subject : AddSubject,
+										Email : AddEmail,
+										Message : AddMessage
+									})
+									.then(function() {
+									alert("Thank For Your Valuable Feedback")
+									console.log("Document successfully written!");
+							})
+									//Same Email ID : 
+									
+								}
+							</script>
+                        </div>
+                     </div>
+               </form>
+            </div>
+             </div>
+               </div>
+            </div>
+
+      </footer>
+   
+      <!-- end copyrights -->
+      <a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+      <!-- all js files -->
+      <script src="js/all.js"></script>
+      <!-- all plugins -->
+      <script src="js/custom.js"></script>
+	   <script src = "HomeTempFinal.js"></script>
+     
+    
+</body>
+</html>

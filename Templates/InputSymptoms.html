@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SympChecker</title>
+
+     <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- Mobile Metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+   <!-- Site Metas -->
+   <title>Life Care</title>
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- Site Icons -->
+   <link rel="shortcut icon" href="images/fevicon.ico.png" type="image/x-icon" />
+   <link rel="apple-touch-icon" href="{{url_for('static', filename = 'appletouchicon.png')}}">
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="css/bootstrap.min.css">
+   <!-- Site CSS -->
+   <link rel="stylesheet" href="style.css">
+   <!-- Colors CSS -->
+   <link rel="stylesheet" href="css/colors.css">
+   <!-- ALL VERSION CSS -->
+   <link rel="stylesheet" href="css/versions.css">
+   <!-- Responsive CSS -->
+   <link rel="stylesheet" href="css/responsive.css">
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="css/custom.css">
+   <!-- Modernizer for Portfolio -->
+   <script src="js/modernizer.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<img src = "{{url_for('static', filename = 'service-bg.png')}}"
+     style="
+     background-attachment: fixed;
+  background-size: cover;
+     width : 113%;
+     height : 657px;
+     margin-left : -13%;">
+<body style="font-size: 16px;
+             font-family: Poppins, sans-serif; ">
+
+<form action="http://127.0.0.1:5000/DiseasePredicted" method="post" style="margin-top: -50%;">
+          <br><br><br>        
+      <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title text-center mb-55" style="margin-left:-5%;">
+               <span class="icon-logo"><img src="{{url_for('static', filename = 'logo.png')}}" alt="#"></span>
+
+                    </div>
+                </div>
+            </div>
+    </div><br><br>
+    
+    <h3 style="font-weight: bold; margin-left:27%; color : white;">Please Select The Symptoms You're Currently Facing</h3>
+       <!-- The "name" parameter for every Select tag will accept the values from the option tag and it will be
+        given as input to the Algorithm.-->
+    <div style="margin-top: 20px; margin-left: 37%; ;border-radius: 22px;">
+    <select name = "InputSymptoms" style="height: 50px;  font-weight: bold;text-align: right;" >
+        {%for every in List_Symptoms%}
+            <option id = "Input1">{{every}}</option>
+        {%endfor%}
+    </select>
+   <br><br> <select name = "InputSymptoms" style="height: 50px; font-weight: bold;text-align: right;">
+        {%for every in List_Symptoms%}
+            <option id = "Input2">{{every}}</option>
+        {%endfor%}
+    </select>
+   <br><br> <select name = "InputSymptoms" style="height: 50px; font-weight: bold;text-align: right;">
+        {%for every in List_Symptoms%}
+            <option id = "Input3">{{every}}</option>
+        {%endfor%}
+    </select>
+   <br><br> <select name = "InputSymptoms" style="height: 50px; font-weight: bold;text-align: right;">
+        {%for every in List_Symptoms%}
+            <option id = "Input4">{{every}}</option>
+        {%endfor%}
+    </select>
+  <br><br>  <select name = "InputSymptoms" style="height: 50px; font-weight: bold;text-align: right;">
+        {%for every in List_Symptoms%}
+            <option id = "Input5">{{every}}</option>
+        {%endfor%}
+    </select>
+        </div>
+   <br>
+    <input type="submit" onclick="Verify()" value="Start CheckUp" name="but1"  style="padding: 15px 30px;
+                                                                   margin-left: 550px;
+                                                                   background: linear-gradient(to right, #64ed58 5%, #47ad62 100%);
+                                                                   color: #fff;
+                                                                   font-weight: bold;
+                                                                   border-radius: 50px;border:none;
+                                                                   margin-top: 10px;
+                                                                   transition:ease all 1s;
+                                                                   cursor: pointer;">
+   <!-- <h1>{{Symptoms}}</h1>  -->
+<script src = "{{url_for('static', filename = 'verify1.js')}}"></script>
+</form>
+</body>
+</html>

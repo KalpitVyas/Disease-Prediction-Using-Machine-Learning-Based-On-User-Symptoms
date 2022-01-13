@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!-- Basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- Mobile Metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+   <!-- Site Metas -->
+   <title>Life Care</title>
+    <meta charset="utf-8" />
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- Site Icons -->
+   <link rel="shortcut icon" href="images/fevicon.ico.png" type="image/x-icon" />
+   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css" />
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="css/bootstrap.min.css">
+   <!-- Site CSS -->
+   <link rel="stylesheet" href="style.css">
+   <!-- Colors CSS -->
+   <link rel="stylesheet" href="css/colors.css">
+   <!-- ALL VERSION CSS -->
+   <link rel="stylesheet" href="css/versions.css">
+   <!-- Responsive CSS -->
+   <link rel="stylesheet" href="css/responsive.css">
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="css/custom.css">
+<!--<link rel="stylesheet" href="css/predition.css"> -->
+   <!-- Modernizer for Portfolio -->
+   <script src="js/modernizer.js"></script>
+   <!-- [if lt IE 9] -->
+    <title>Prediction</title><!-- Latest compiled and minified CSS -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><!-- new link -->
+
+    
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!--script of output -->   
+    <style>
+.collapsible {
+  background: url(service-bg.png);
+    background-repeat: no-repeat;
+    margin-left: 160px;
+    margin-top: 25px;
+  color: white;
+
+  cursor: pointer;
+  padding: 18px;
+  width: 70%;
+  border: none;
+box-shadow: 20%;
+  text-align: left;
+  outline: none;
+  font-size: 12px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.content {
+  padding: 20px 18px;
+  display: none;
+  overflow: hidden;
+  background-color:white;
+}
+</style>
+    
+    
+</head>
+	<!--https://github.com/firebase/firebase-js-sdk/issues/998-->
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
+	<script>
+	var firebaseConfig = {
+    apiKey: "AIzaSyAhTzPkUDYPkQCRxAhDAGR8BGIMuHMs9z4",
+    authDomain: "sympchecker-42e0e.firebaseapp.com",
+    databaseURL: "https://sympchecker-42e0e.firebaseio.com",
+    projectId: "sympchecker-42e0e",
+    storageBucket: "sympchecker-42e0e.appspot.com",
+    messagingSenderId: "182815287710",
+    appId: "1:182815287710:web:fcdcd7a744c223629b0e8f",
+    measurementId: "G-PNGPTWGDBK"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+ 
+</script>
+    
+   <body class="clinic_version" style="background: url(b3.jpg); background-repeat:no-repeat;">
+       <!-- this help us to load the page -->
+      <!-- LOADER 
+      <div id="preloader">
+         <img class="preloader" src="images/loaders/heart-loading2.gif" alt="">
+      </div>
+       -->
+       <!-- header // custom.css -->
+      <header>
+         <div class="header-top wow fadeIn" style="overflow-y: hidden;">
+            <div class="container">
+               <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="image"></a>
+               <div class="right-header">
+                  <div class="header-info">
+                     <div class="info-inner">
+                        <span class="icontop"><img src="images/phone-icon.png" alt="#"></span>
+                        <span class="iconcont"><a href="tel:800 123 456">800 123 456</a></span>	<!-- phone number-->
+                     </div>
+                     <div class="info-inner">
+                        <span class="icontop"><i class="fa fa-envelope"></i></span>
+						 <span class="iconcont"><label id = "DisplayMail"></label></span>	
+                     </div>
+                     <div class="info-inner">
+                        <span class="icontop"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+                        <span class="iconcont"><a data-scroll href="#">Daily: 24/7</a></span>	
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         
+       </header>
+
+<div class="container" style="padding-top:100px; padding-left: 80px;">
+    <form method="post" style="color: aliceblue;">
+        <b><h1 style="text-align: center;">Disease : {{DiseaseName}}</h1></b><br>
+        <h2><p><B>Disease Info :</B> {{l1}}</p></h2>
+        <br>
+       <h3>Precautions to take</h3>
+    {%for T in list_of_precautions%}
+        <p>{{T}}
+        {%endfor%}
+<br>
+        <br>
+            
+       <h4>Do's</h4>
+    {%for L1 in DiseaseDoList%}
+        <p>{{L1}}</p>
+    {%endfor%}
+        <br>
+    <h4>Don'ts</h4>
+    {%for L2 in DiseaseDontList%}
+        <p>{{L2}}</p>
+    {%endfor%} 
+        <br>
+        <h4>You should Visit a<u>{{SpecialistName}}</u></h4>
+        
+        <h4>Suggested Lab Test are :</h4>
+    {%for L in Labtest%}
+        <p>{{L}}</p>
+    {%endfor%}
+        <br>
+        
+ 
+
+</form>
+</div>
+   </body>
+</html>

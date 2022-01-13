@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Life Care</title>
+    <meta charset="utf-8" />
+
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- Site Icons -->
+   <link rel="shortcut icon" href="images/fevicon.ico.png" type="image/x-icon" />
+   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css" />
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="{{url_for('static', filename = 'css/bootstrap.min.css')}}">
+   <!-- Site CSS -->
+   <link rel="stylesheet" href="{{url_for('static',filename = 'css/style.css')}}">
+   <!-- Colors CSS -->
+   <link rel="stylesheet" href="{{url_for('static', filename = 'css/colors.css')}}">
+   <!-- ALL VERSION CSS -->
+   <link rel="stylesheet" href="{{url_for('static', filename= 'css/versions.css')}}">
+   <!-- Responsive CSS -->
+   <link rel="stylesheet" href="{{url_for('static', filename = 'css/responsive.css')}}">
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="{{url_for('static', filename = 'css/custom.css')}}">
+<!--<link rel="stylesheet" href="css/predition.css"> -->
+   <!-- Modernizer for Portfolio -->
+   <script src="{{url_for('static', filename = 'css/modernizer.js')}}"></script>
+   <!-- [if lt IE 9] -->
+  <style>
+    .collapsible {
+  background: url(service-bg.png);
+    background-repeat: no-repeat;
+    margin-left: 160px;
+    margin-top: 25px;
+  color: white;
+
+
+  cursor: pointer;
+  padding: 18px;
+  width: 70%;
+  border: none;
+    box-shadow: 20%;
+  text-align: left;
+  outline: none;
+  font-size: 20px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.content {
+  padding: 20px 18px;
+  display: none;
+  overflow: hidden;
+  background-color:white;
+}
+
+  </style>
+</head>
+<body background="{{url_for('static', filename = 'g.jpg')}}">
+<header>
+         <div class="header-top wow fadeIn" style="overflow-y: hidden;">
+            <div class="container">
+               <a class="navbar-brand" href="index.html"><img src="{{url_for('static', filename = 'logo.png')}}" alt="image" style="width : 60%;"></a>
+               <div class="right-header">
+                  <div class="header-info">
+                  </div>
+               </div>
+            </div>
+         </div>
+       </header>
+<div style="margin-top : 10%;">
+    <h2 style="color : white">Symptoms Provided : </h2>
+    {%for _ in InputSymp%}
+        <h2 style="color : white; margin-left : 12%;">{{_}}</h2>
+    {%endfor%}
+    <button type="button" class="collapsible"><b>{{OutputDisease}}</b></button>
+<div class="content">
+   <p>Disease Decription : {{OutDecisionTree_Description}}</p>
+  <p>Specialist : {{OutDecisionTree_Specialist}}</p>
+  <p>Suggested Lab Test :</p>
+  {%for test in OutDecisionTree_LabTest%}
+    <ul><li>{{test}}</li></ul>
+  {%endfor%}
+  <p>Precautions : </p>
+  {%for prec in OutDecisionTree_Precautions%}
+    <ul><li>{{prec}}</li></ul>
+  {%endfor%}
+  <p>Do's</p>
+  {%for DoinDecision in OutDecisionTree_DiseaseDoList%}
+  <ul><li>{{DoinDecision}}</li></ul>
+  {%endfor%}
+  <p>Dont's</p>
+  {%for dont in OutDecisionTree_DiseaseDontList%}
+  <ul><li>{{dont}}</li></ul>
+  {%endfor%}
+</div><br><br>
+
+<!--Random Forest-->
+<button type="button" class="collapsible"><b>{{RandomForestPredictor}}</b></button>
+<div class="content">
+  <p>{{DescriptionReturn2}}</p>
+    <p> Disease Description : {{OutRandomForest_Description}}</p>
+  <p>Specialist Name : {{OutRandomForest_Specialist}}</p>
+  <p>Precaution : </p>
+  {%for pre1 in OutRandomForest_Precaution%}
+    <ul>
+      <li>{{pre1}}</li>
+    </ul>
+  {%endfor%}
+  <p>Suggested Lab Test : </p>
+  {%for LT1 in OutRandomForest_LabTest%}
+    <ul><li>{{LT1}}</li></ul>
+  {%endfor%}
+  <p>Do's</p>
+  {%for do1 in OutRandomForest_DiseaseDoList%}
+  <ul><li>{{do1}}</li></ul>
+  {%endfor%}
+  <p>Dont's</p>
+  {%for do2 in OutRandomForest_DiseaseDontList%}
+    <ul>
+      <li>{{do2}}</li>
+    </ul>
+  {%endfor%}
+</div><br><br>
+
+<!--Naive Bayes-->
+<button type="button" class="collapsible"><b>{{NaiveBayesPredictor}}</b></button>
+<div class="content">
+  <p>Disease Description : {{OutNaiveBayes_Description}}</p>
+  <p>Specialist Name : {{OutNaiveBayes_SpecialistName}}</p>
+  <p>Precautions : </p>
+  {%for Pre in OutNaiveBayes_Precaution%}
+    <ul>
+      <li>{{Pre}}</li>
+    </ul>
+  {%endfor%}
+  <p> Suggested Lab Tests :</p>
+  {%for LT in OutNaiveBayes_LabTest%}
+  <ul><li>{{LT}}</li></ul>
+  {%endfor%}
+  <p>Do's : </p>
+  {%for Temp in OutNaiveBayes_DiseaseDoList%}
+    <ul>
+      <li>{{Temp}}</li>
+    </ul>
+  {%endfor%}
+  <p>Dont's : </p>
+  {%for Temp1 in OutNaiveBayes_DiseaseDontList%}
+    <ul>
+      <li>{{Temp1}}</li>
+    </ul>
+  {%endfor%}
+  </div>
+</div>
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+   </body>
+</html>

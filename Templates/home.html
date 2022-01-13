@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hey</title>
+</head>
+<body>
+<h2>Select the Symptoms for {{PutDisease1}}</h2>
+<form action="http://127.0.0.1:5000/DiseasePredict" method="post">
+    <p>{{Sentence}}</p>
+    {% for every in Symptoms%}
+        <input type = "checkbox" name = 'Symptoms' value = {{every}}>
+        <label>{{every}}</label><br>
+    {%endfor%}
+        <input type = "submit" value = "Start CheckUp">
+</form>
+</body>
+</html>

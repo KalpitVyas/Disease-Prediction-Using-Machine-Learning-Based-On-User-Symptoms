@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!-- Basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- Mobile Metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+   <!-- Site Metas -->
+   <title>Life Care</title>
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- Site Icons -->
+   <link rel="shortcut icon" href="images/fevicon.ico.png" type="image/x-icon" />
+   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="css/bootstrap.min.css">
+   <!-- Site CSS -->
+   <link rel="stylesheet" href="style.css">
+   <!-- Colors CSS -->
+   <link rel="stylesheet" href="css/colors.css">
+   <!-- ALL VERSION CSS -->
+   <link rel="stylesheet" href="css/versions.css">
+   <!-- Responsive CSS -->
+   <link rel="stylesheet" href="css/responsive.css">
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="css/custom_profile.css">
+   <!-- Modernizer for Portfolio -->
+   <script src="js/modernizer.js"></script>
+   <!-- [if lt IE 9] -->
+</head>
+	<!--https://github.com/firebase/firebase-js-sdk/issues/998-->
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
+	<script>
+	var firebaseConfig = {
+    apiKey: "AIzaSyAhTzPkUDYPkQCRxAhDAGR8BGIMuHMs9z4",
+    authDomain: "sympchecker-42e0e.firebaseapp.com",
+    databaseURL: "https://sympchecker-42e0e.firebaseio.com",
+    projectId: "sympchecker-42e0e",
+    storageBucket: "sympchecker-42e0e.appspot.com",
+    messagingSenderId: "182815287710",
+    appId: "1:182815287710:web:fcdcd7a744c223629b0e8f",
+    measurementId: "G-PNGPTWGDBK"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+	</script>
+   <body class="clinic_version">
+       <!-- this help us to load the page -->
+      <!-- LOADER -->
+      <div id="preloader">
+         <img class="preloader" src="images/loaders/heart-loading2.gif" alt="">
+      </div>
+      <!-- END LOADER -->
+       <!-- header // custom.css -->
+      <header>
+         <div class="header-top wow fadeIn" style="overflow-y: hidden;">
+            <div class="container">
+               <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="image"></a>
+               <div class="right-header">
+                  <div class="header-info">
+                     <div class="info-inner">
+                        <span class="icontop"><i class="fa fa-envelope"></i></span>
+						 <span class="iconcont"><label id = "DisplayMail"></label></span>	
+                     </div>
+                     <div class="info-inner">
+                        <span class="icontop"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+                        <span class="iconcont"><a data-scroll href="#">Daily: 24/7</a></span>	
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="header-bottom wow fadeIn">
+            <div class="container">
+               <nav class="main-menu">
+                  <div class="navbar-header">
+                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i class="fa fa-bars" aria-hidden="true"></i></button>
+                  </div>
+				  
+                  <div id="navbar" class="navbar-collapse collapse">
+                     <ul class="nav navbar-nav">
+                        <li><a class="active" href="profile.html">Profile</a></li>
+                        <li><a onclick="backToHome()">Home</a></li>
+						 <script>
+							 function backToHome(){
+								const URL = "http://localhost:8080/Sympchecker/HomePage/index.html"
+								window.open(URL, "_blank");
+								 window.close("http://localhost:8080/Sympchecker/HomePage/profile.html")
+							 }
+						 </script>
+						 <li><a href= " " onclick="SignOut()">Sign Out</a></li>
+                     </ul>
+                  </div>
+               </nav>
+            </div>
+         </div>
+      </header>
+ 
+      <!-- end section -->
+ <!-- start my profile -->
+       
+      <div id="profile" class="section wow fadeIn">
+         <div class="container">
+            <div class="heading">
+               <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
+            </div>
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="message-box">
+                     <h4>My Profile</h4>
+                    <p class="lead">
+                      <div class = "card bg-primary" id = "MyProfile" style="height: 600%; background-color: white;">
+                            <div class = "container" style="margin-left: 30%; width: 30%;">
+                                <div style = "margin-left: -75%;">
+									<label style="color: black">Name : </label><p id = "UserName" style="color: black; margin-left: 35%; margin-top: -13%;"></p>
+                                    <label style="color: black;">Age : </label><p id = "DisplayAge" style="color: black; margin-left: 35%; margin-top: -13%;"></p>
+                                    <label style="color: black;">Gender :</label><p id = "UserGender" style="color: black; margin-left: 35%; margin-top: -13%;"></p>
+                                    <label style="color:black;">Blood Group : </label><p id = "UserBloodGroup" style="color: black; margin-left: 54%;margin-top: -13%;"></p>
+                                    <label style = "color: black;">Phone Number : </label><p id = "PhoneNumber" style="color: black; margin-left: 65%; margin-top: -13%;"></p>
+                                    <label style="color: black;">Address : </label><p id = "UserAddress" style="color: black;margin-left: 41%; margin-top: -13%;"></p>
+                                    <label style = "color: black;">City : </label><p id = "UserCity" style="color: black; margin-left: 30%; margin-top: -13%;"></p>
+                                    <label style="color: black;">PinCode : </label><p id = "UserPinCode" style="color: black; margin-left: 37%; margin-top: -13%;"></p>
+                                </div>
+                            </div>
+                        </div> 
+        <!-- update profile button -->       
+					  <button type = "button" data-target="#CreateAccountModal" data-toggle = "modal" class="btn btn-light btn-radius btn-brd grd1 effect-1">Update Profile</button>
+					  <div class="modal fade" id="CreateAccountModal" tabindex="-1" role="dialog" aria-labelledby="CreateAccountModalTitle" aria-hidden="true">
+  <div class = "modal-dialog modal-lg" role = "document" style="width: 90%;">  
+			<div class = "modal-content">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          			<span aria-hidden="true">&times;</span>
+        		</button>
+				<div class = "modal-header">
+					<h3>Update Account for </h3> <p id = "DisplayMailForModal"></p>  <!--Modal Header-->
+				</div>
+				<div class = "modal-body">
+					<div class = "input-group md-3">
+						<label class = "input-group-text" id=basic-addon1 style="font-size: 15px;">Username</label>
+						<input type ="text" class ="form-control" id = "UpdateUserName" aria-label="UserName" aria-describedby="basic-addon1" style="margin-left: 30%; margin-top: -30px; width : 80%;"><br>
+					</div>
+					<div class = "input-group md-3" style="margin-left: 32%; margin-top: -30px;">
+						<label class = "input-group-text" id=basic-addon2 style="font-size: 15px;">Age</label>
+						<input type ="text" class ="form-control" id = "UpdateAge" aria-label="Age" aria-describedby="basic-addon2" style="margin-left: 20%; margin-top: -30px;"><br>
+					</div>
+					<div class = "input-group md-3" style="margin-left: 58%; margin-top: -30px;">
+						<label class = "input-group-text" id=basic-addon3 style="font-size: 15px;">Phone Number</label>
+						<input type ="text" class ="form-control" id = "UpdatePhoneNumber" aria-label="PhoneNumber" aria-describedby="basic-addon3" style="margin-left: 40%; margin-top: -30px;"><br>
+					</div>
+					<div class = "input-group md-3" style="margin-top: 35px;">
+						<label class = "input-group-text" id=basic-addon4 style="font-size: 15px;">Address</label><br>
+						<input type ="text" class ="form-control" id = "UpdateAddress" aria-label="Address" aria-describedby="basic-addon4" style="margin-left: 41%; margin-top: -30px; width: 293%;" rows="3"><br>
+					</div>
+					<div class = "input-group md-3" style="margin-top: -45px; margin-left: 58%;">
+						<label class = "input-group-text" id=basic-addon5 style="font-size: 15px;">Blood Group</label>
+						<div style = "margin-top: -27%;">
+							<select name="Blood" id="BloodGroup" style="margin-left: 133%;">
+								<option value="A+">A+</option>
+								<option value="B+">B+</option>
+								<option value="O+">O+</option>
+								<option value="AB+">AB+</option>
+								<option value="A+">A-</option>
+								<option value="B+">B-</option>
+								<option value="O+">O-</option>
+								<option value="AB+">AB-</option>
+							  </select>
+						</div>
+				</div><br><br>
+				<div class = "input-group md-3"> <!--City-->
+					<label class = "input-group-text" id=basic-addon6 style="font-size: 15px;">City</label>	
+					<br>
+					<input type = "text" class = "form-control" id = "UpdateCity" aria-label = "City" aria-describedby="bacic-addon6" style = "width : 100%; margin-left: 41%; margin-top: -30px;">
+				</div>
+				<div class = "input-group md-3" style = "margin-left: 48%; margin-top: -2.5%;">
+					<label  class = "input-group-text" id=basic-addon8 style="font-size: 15px;" id = "Pincode">Pin Code</label>	
+				</div>
+				<div style = "margin-top: -2.5%;">
+					<input type = "text" class = "form-control" id = "UpdatePinCode" aria-label = "PinCode" aria-describedby="bacic-addon8" style = "width : 15%; margin-left: 55%;">
+				</div>
+				<br>
+					<br><br>
+						<br><br>
+						</div>
+				<div class = "modal-footer">
+					<button class = "btn btn-success" onclick="UpdateInfo()">Update Profile</button>
+				</div>
+			</div>
+		</div>
+	</div>
+            <!-- chnage password -->
+                                    <button data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1" style="margin-right: 15%"   data-toggle="modal" data-target="#exampleModalCenter">Change Password</button>
+					  			
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Let us verify first....</h5>
+		  <h5>Looks Like you have fogotten your Password. No Worries, We will send you a Password Reset Mail to your EMAIL ADDRESS.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type = "email" placeholder="Enter Your Registered Email Address" id = "ResetPass" style="width: 50%;"> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="ForgotPassword()">Send Confirmation</button>
+      </div>
+    </div>
+  </div>
+</div>
+                                  </div>
+                               </div>
+         <!-- image near the rofile col -->
+     
+                            <div class="col-md-6">
+                          <div class="post-media wow fadeIn">
+                             <img src="image2.jpg" alt="" class="img-responsive">
+
+                          </div>
+         <!-- end image -->
+               </div>
+            </div>
+        </div>
+          <!-- end profile --> <!-- end row -->
+	   </div>	         
+       <!--  footer section -->
+      <div id="getintouch" class="section wb wow fadeIn" style="padding-bottom:0;">
+         <div class="container">
+            <div class="heading">
+               <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
+               <h2>Get in Touch</h2>
+            </div>
+         </div>
+      </div>
+      <!-- footer end-->
+      <a href="#profile" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+      <!-- all js files -->
+      <script src="js/all.js"></script>
+      <!-- all plugins -->
+	   <script src="js/custom.js"></script>
+		  <script src = "UserProfile_Final.js"></script>
+   </body>
+</html>

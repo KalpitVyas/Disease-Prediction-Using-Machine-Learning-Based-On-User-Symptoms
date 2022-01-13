@@ -1,0 +1,25 @@
+<html>
+    <head> <title>user choice</title>
+   <link rel="stylesheet" type="text/css" href="cards.css">
+    </head>
+    <body style=" background-image: url(HomePage/images/price-bg.png)">
+  <div class="login">
+        <img src="plogo.jpg" class="logo">
+                <input type="button", onclick="OpenUserLogin()" value="I'm Patient">
+		</div>
+         <div class="doc">
+        <img src="doclogo.jpg" class="logo">
+                <input type="button" onclick = "OpenDocLogin()" value="I'm Doctor">
+        </div>
+		<script>
+		function OpenUserLogin(){
+			URL = "http://localhost:8080/Sympchecker/LoginUser.html";
+        const win = window.open(URL, "_self");
+		}
+		function OpenDocLogin(){
+			URL = "http://localhost:8080/Sympchecker/Doctor/LoginUser_doc.html";
+        const win = window.open(URL, "_self");
+		}
+		</script>
+    </body>
+</html>

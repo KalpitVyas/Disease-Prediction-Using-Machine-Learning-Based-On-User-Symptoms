@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!-- Basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- Mobile Metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+   <!-- Site Metas -->
+   <title>Life Care</title>
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- Site Icons -->
+   <link rel="shortcut icon" href="images/fevicon.ico.png" type="image/x-icon" />
+   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="css/bootstrap.min.css">
+   <!-- Site CSS -->
+   <link rel="stylesheet" href="style.css">
+   <!-- Colors CSS -->
+   <link rel="stylesheet" href="css/colors.css">
+   <!-- ALL VERSION CSS -->
+   <link rel="stylesheet" href="css/versions.css">
+   <!-- Responsive CSS -->
+   <link rel="stylesheet" href="css/responsive.css">
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="css/custom_profile.css">
+   <!-- Modernizer for Portfolio -->
+   <script src="js/modernizer.js"></script>
+   <!-- [if lt IE 9] -->
+    
+<style>
+* {box-sizing: border-box;}
+ul {list-style-type: none;}
+body {font-family: Verdana, sans-serif;}
+
+.month {
+  padding: 70px 25px;
+  width: 100%;
+  background:url(back_bg.jpg);
+background-repeat: no-repeat;
+  text-align: center;
+}
+
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.month .prev {
+  float: left;
+  padding-top: 10px;
+}
+
+.month .next {
+  float: right;
+  padding-top: 10px;
+}
+
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+  background-color: #ddd;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 13.6%;
+  color: #666;
+  text-align: center;
+}
+
+.days {
+  padding: 10px 0;
+  background: #eee;
+  margin: 0;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 13.6%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size:12px;
+  color: #777;
+}
+
+.days li .active {
+  padding: 5px;
+  background: #1abc9c;
+  color: white !important
+}
+
+/* Add media queries for smaller screens */
+@media screen and (max-width:720px) {
+  .weekdays li, .days li {width: 13.1%;}
+}
+
+@media screen and (max-width: 420px) {
+  .weekdays li, .days li {width: 12.5%;}
+  .days li .active {padding: 2px;}
+}
+
+@media screen and (max-width: 290px) {
+  .weekdays li, .days li {width: 12.2%;}
+}
+</style>
+</head>
+	<!--https://github.com/firebase/firebase-js-sdk/issues/998-->
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
+	<script>
+	var firebaseConfig = {
+    apiKey: "AIzaSyAhTzPkUDYPkQCRxAhDAGR8BGIMuHMs9z4",
+    authDomain: "sympchecker-42e0e.firebaseapp.com",
+    databaseURL: "https://sympchecker-42e0e.firebaseio.com",
+    projectId: "sympchecker-42e0e",
+    storageBucket: "sympchecker-42e0e.appspot.com",
+    messagingSenderId: "182815287710",
+    appId: "1:182815287710:web:fcdcd7a744c223629b0e8f",
+    measurementId: "G-PNGPTWGDBK"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+	</script>
+   <body class="clinic_version">
+       <!-- this help us to load the page -->
+      <!-- LOADER -->
+      <div id="preloader">
+         <img class="preloader" src="images/loaders/heart-loading2.gif" alt="">
+      </div>
+      <!-- END LOADER -->
+       <!-- header // custom.css -->
+      <header>
+         <div class="header-top wow fadeIn" style="overflow-y: hidden;">
+            <div class="container">
+               <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="image"></a>
+               <div class="right-header">
+                  <div class="header-info">
+                     <div class="info-inner">
+                        <span class="icontop"><img src="images/phone-icon.png" alt="#"></span>
+                        <span class="iconcont"><a href="tel:800 123 456">800 123 456</a></span>	<!-- phone number-->
+                     </div>
+                     <div class="info-inner">
+                        <span class="icontop"><i class="fa fa-envelope"></i></span>
+						 <span class="iconcont"><label id = "DisplayMail"></label></span>	
+                     </div>
+                     <div class="info-inner">
+                        <span class="icontop"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+                        <span class="iconcont"><a data-scroll href="#">Daily: 24/7</a></span>	
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="header-bottom wow fadeIn">
+            <div class="container">
+               <nav class="main-menu">
+                  <div class="navbar-header">
+                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i class="fa fa-bars" aria-hidden="true"></i></button>
+                  </div>
+				  
+                  <div id="navbar" class="navbar-collapse collapse">
+                     <ul class="nav navbar-nav">
+                        <li><a class="active" href="profile.html">Profile</a></li>
+                         <li><a href = "#" data-target="#ShowListofPatient" data-toggle = "modal" onclick="Show()">List of Patient</a></li><!-- move to middle -->
+                         <!--<li><a data-scroll href="#history">Appointments</a></li> -->
+						 <li><a href= " " onclick="SignOut()">Sign Out</a></li>
+                     </ul>
+                  </div>
+               </nav>
+            </div>
+         </div>
+      </header>
+ 
+      <!-- end section -->
+ <!-- start my profile -->
+       
+      <div id="profile" class="section wow fadeIn">
+         <div class="container">
+            <div class="heading">
+               <span class="icon-logo"><img src="images/icon-logo.png" alt="#" style="margin-top: -20%;"></span>
+            </div>
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="message-box">
+                     <h4>My Profile</h4>
+                    <p class="lead">
+                      <div class = "card bg-primary" id = "MyProfile" style="height: 600%; background-color: white;">
+                            <div class = "container" style="margin-left: 30%; width: 30%; ">
+                                <h3 style="font-size: 25px; margin-left: -95%;"><label id = "UserName"></label></h3>
+                                <div style = "margin-left: -75%;">
+									<label style = "color: black;">Name : </label><p id = "DocName" style="color: black; margin-left:35%; margin-top:-13%;"></p>
+                                    <label style = "color: black;">Age : </label><p id = "DisplayAge" style="color: black; margin-left:35%; margin-top:-13%;"></p>
+                                    <label style = "color: black;">Gender :</label><p id = "UserGender" style="color: black;margin-left:35%; margin-top:-13%"></p>
+                                    <label style = "color: black;">Blood Group : </label><p id = "UserBloodGroup" style="color: black;margin-left:45%; margin-top:-13%"></p>
+                                    <label style = "color: black;">Phone Number : </label><p id = "PhoneNumber" style="color: black;margin-left:57%; margin-top:-13%"></p>
+                                    <label style = "color: black;">Address : </label><p id = "UserAddress" style="color: black;margin-left:35%; margin-top:-13%"></p>
+                                    <label style = "color: black;">City : </label><p id = "UserCity" style="color: black;margin-left:35%; margin-top:-13%"></p>
+                                    <label style = "color: black;">Year of exprience : </label><p id = "DocYOE" style="color: black;margin-left:65%; margin-top:-13%"></p>
+                                    <label style = "color: black;">Degree</label><p id = "DocQualification" style="color: black;margin-left:35%; margin-top:-13%"></p>
+                                </div>
+                            </div>
+                        </div>
+				   </div>
+				   
+        <!-- Show list of patients button -->
+					  <div class="modal fade" id="ShowListofPatient" tabindex="-1" role="dialog" aria-labelledby="CreateAccountModalTitle" aria-hidden="true">
+  <div class = "modal-dialog modal-lg" role = "document" style="width: 90%;">  
+			<div class = "modal-content">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          			<span aria-hidden="true">&times;</span>
+        		</button>
+				<div class = "modal-header">
+					<h3>List of patient</h3> <p id = "DisplayMailForModal"></p>  
+					<!--Modal Header-->
+				</div>
+				<div class = "modal-body">
+					<!--Label-->
+						<label>Patient Name : </label>
+						<label style="margin-left: 12%;">Patient Email Id : </label>
+						<label style="margin-left: 15%;">Day : </label>
+						<label style="margin-left: 10%;">Time : </label><br>
+					<!--Displaying the Values from the Firebase -->
+						<label id = "NamePatient"></label>
+						<label id = "EmailPatient" style="margin-left: 10.2%;"></label>
+						<label id = "Day" style="margin-left: 7.4%;"></label>
+						<label id = "Time" style="margin-left: 7.4%;"></label>
+				<div class = "modal-footer">
+					<button type="button" class="close" data-dismiss = "modal">OKAY</button>
+				</div>
+			</div>
+		</div>
+	</div>
+					  </div>
+            <!-- chnage password -->
+
+                                    <a href="#profile" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1" style="margin-right: 15%" onclick="ChangePassword()">Change password</a>
+                                  </div>
+                               </div>
+         <!-- image near the rofile col -->
+  
+                            
+            </div>
+        </div>
+          <!-- end profile --> <!-- end row -->
+	   <div class="col-md-6">
+                          <div class="post-media wow fadeIn" style="width: 100%; margin-left: 100%; margin-top: -140%;">
+                             <img src="image2.jpg" alt="" class="img-responsive">
+                          </div>
+         <!-- end image -->
+               </div>
+	   
+       <!--  footer section -->
+      <div id="getintouch" class="section wb wow fadeIn" style="padding-bottom:0;">
+         <div class="container">
+            <div class="heading">
+               <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
+               <h2>Get in Touch</h2>
+            </div>
+         </div>
+        
+      </div>
+      <!-- footer end-->
+      <a href="#profile" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+      <!-- all js files -->
+      <script src="js/all.js"></script>
+      <!-- all plugins -->
+      <script src="js/custom.js"></script>
+	   <script src = "UserProfiledocRecent.js"></script>
+   </body>
+</html>

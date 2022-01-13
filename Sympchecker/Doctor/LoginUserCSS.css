@@ -1,0 +1,52 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(log1.jpg);
+    background-size: cover;
+    font-family: sans-serif;    
+}
+
+.container{
+    margin: 100px;
+    padding-top: 100px;
+    padding-left: 400px;
+    width: 870px;
+    height: 390px;
+    border:0px solid; 
+    border-radius: 0px;
+    border-bottom-style: hidden;
+}
+
+.inner_container{
+    
+    padding-left: 10px; 
+    padding-top: 5px;
+}
+
+
+.inner_container input[type="email"],input[type="password"]{
+    border: none; 
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    width: 350px;
+    height: 45px;
+    color: black;
+    font-weight: 300;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.btn btn-success [type="button"]{
+    border: none;
+    outline: none;
+    background:blue;
+    border-radius: 20px;
+    color: aliceblue;
+    font-size: 18px;
+    height: 40px;
+}
+.inner_container btn btn-success{
+    margin: 20px;
+    width:10px;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Life Care</title>
+    <meta charset="utf-8" />
+
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- Site Icons -->
+   <link rel="shortcut icon" href="images/fevicon.ico.png" type="image/x-icon" />
+   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css" />
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="{{url_for('static', filename = 'css/bootstrap.min.css')}}">
+   <!-- Site CSS -->
+   <link rel="stylesheet" href="{{url_for('static',filename = 'css/style.css')}}">
+   <!-- Colors CSS -->
+   <link rel="stylesheet" href="{{url_for('static', filename = 'css/colors.css')}}">
+   <!-- ALL VERSION CSS -->
+   <link rel="stylesheet" href="{{url_for('static', filename= 'css/versions.css')}}">
+   <!-- Responsive CSS -->
+   <link rel="stylesheet" href="{{url_for('static', filename = 'css/responsive.css')}}">
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="{{url_for('static', filename = 'css/custom.css')}}">
+<!--<link rel="stylesheet" href="css/predition.css"> -->
+   <!-- Modernizer for Portfolio -->
+   <script src="{{url_for('static', filename = 'css/modernizer.js')}}"></script>
+   <!-- [if lt IE 9] -->
+</head>
+<body background="{{url_for('static', filename = 'g.jpg')}}">
+<header>
+         <div class="header-top wow fadeIn" style="overflow-y: hidden;">
+            <div class="container">
+               <a class="navbar-brand" href="index.html"><img src="{{url_for('static', filename = 'logo.png')}}" alt="image" style="width : 60%;"></a>
+               <div class="right-header">
+                  <div class="header-info">
+                  </div>
+               </div>
+            </div>
+         </div>
+       </header>
+<div class="container" style="padding-top:100px; padding-left: 100px;">
+<form method="post">
+    <input type="text" name = "GetDiseaseName" style="width:80%; height:50px;">
+        <input type="submit" value="Submit" style="height:50px; border-radius:15%">
+</form>
+</div>
+   </body>
+</html>
